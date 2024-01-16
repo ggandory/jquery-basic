@@ -1,0 +1,55 @@
+attr()   VS   prop()
+
+jQuery 1.6.0 업데이트로  attr() 과  prop()  두 개로 나눠졌다.
+
+- attr() :  HTML 속성 (Attribute) 취급
+
+- prop() : javascript 프로퍼티 (Property) 취급
+
+ 
+
+**  속성(Attribute) 은 HTML 요소에 대한 추가 정보를 전달하며 쌍으로 제공
+
+**  프로퍼티(Property) 는 HTML DOM트리의 특성으로
+
+javaSctipt / jQuery를 통해 수정된 요소의 값을 가져오는데 사용하는 것이 좋음
+
+// .html
+<input type="checkbox" id="example" checked="checked">
+ 
+
+// .js
+// attr()
+var text = $("input[type=text]");
+console.log(chk.attr("id"));		// example
+console.log(chk.attr("type"));		// text
+console.log(chk.attr("checked"));	// checked
+ 
+
+// .js
+// prop()
+var text = $("input[type=text]");
+console.log(chk.prop("id"));		// example
+console.log(chk.prop("type"));		// text
+console.log(chk.prop("checked"));	// true
+ 
+
+위의 예제를 보면 id와 type 값은 동일하나 checked에서 다른 값을 확인 할 수 있다.
+
+ attr()  은 HTML 속성 값이 모두 String의 타입이지만  prop() 는 boolean, date, function 등으로 가져올 수 있다.
+
+ 
+
+attr() / prop() 둘 중 무엇이 좋을까?
+ 
+
+각 사용자들이 사용하는 목적에 따라 다를 수 있지만  prop() 가  attr() 보다 약 2.5배 빠르다는 장점을 가진다.
+
+HTML의 속성을 가지고 오고 싶을 때는  attr() 을,
+
+javaScript로 수정된 요소의 값을 가지고 싶을 때는  prop()  사용을 권한다.
+
+더나아가 체크박스를 컨트롤할 때, 체크박스의 체크여부를 알아볼 수 있는  is(":checked" ) 와  prop("checked") 에 대해서는 다음 포스팅에서 다뤄보겠다!
+
+ 
+
